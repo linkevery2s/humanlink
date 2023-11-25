@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<title>誰と繋がっている？</title>
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" >
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta property="og:title" content="誰と繋がっている？" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="./ogp.jpg" />
+<meta name="description" content="一人で生きていける人はいません。あなたの普段の行為は、どこかで誰かと繋がっているし、役にも立っています。誰と繋がっているのかな？考えてみよう！" />
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="誰と繋がっている？" />
+<meta name="twitter:image" content="./ogp.jpg" />
+<meta name="author" content="仁志">
+<meta name="keywords" content="ノード,ツリー,マインドマップ,mindmap,tree,node,人"/>
+  <style>
+    html,body{
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    body{
+      text-align: center;
+    }
+
+    body{
+      font-family: "Meiryo","Hiragino Maru Gothic Pro",sans-serif;
+      background-attachment: fixed;
+      background-image: url("./back.jpg");
+      background-position: top center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    /* iOS用  */
+    body::before{
+      content:"";
+      display:block;
+      position:fixed;
+      top:0;
+      left:0;
+      z-index:-1;
+      width:100%;
+      height:100vh;
+      background-repeat: no-repeat;
+      background-position: top center;
+      background-image:url("./back.jpg");
+      background-size: cover;
+    }
+
+    #inputgraph{
+      width: 90%;
+      height: 500px;
+      margin: 0;
+      padding: 0;
+      border: 1px solid #000000;
+    }
+
+  </style>
+  <script type="module" src="./input-graph.js"></script>
+  <script type="module" src="https://code4fukui.github.io/input-table/input-table.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+
+  <h1 class="text-3xl font-bold my-5 text-white">誰と繋がっている？</h1>
+
+  <input-graph id="inputgraph"></input-graph>
+
+<input-table id="chk">s,o
+店員,買い物をする人
+建物の管理する人,買い物をする人
+買い物をする人,物流の人
+</input-table>
+
+<div class="text-white px-5">
+  <a href="https://github.com/code4fukui/input-graph" target="_blank">input-graph</a><br>
+　灯り © TAKAYOSHI_ENDOU <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">クリエイティブ・コモンズ・ライセンス（表示4.0 国際）</a>
+</div>
+<script type="module">
+  inputgraph.value = chk.value;
+
+  chk.onchange = () => {
+    inputgraph.value = chk.value;
+  };
+
+</script>
+
+</body>
+</html>
